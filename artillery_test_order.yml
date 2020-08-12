@@ -1,0 +1,14 @@
+config:
+  #target: "http://kilem-load-1960540821.us-west-2.elb.amazonaws.com"
+  target: "http://LB-classic-1987902930.ap-northeast-1.elb.amazonaws.com"   
+  http:
+    pool: 20
+  phases:
+    - duration: 1000
+      arrivalRate: 40
+scenarios:
+  - flow:
+    - get:
+        url : "/api/1.0/order/payments"
+        #url: "/api/1.0/order/paymentsGroup"
+        #url: "/api/1.0/order/paymentsCache"

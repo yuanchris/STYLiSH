@@ -1,0 +1,52 @@
+* {
+   box-sizing: border-box;
+}
+
+body {
+   line-height: 1.6;
+   font-family: 'Varela Round', sans-serif;
+   position: absolute;
+   max-width: 520px;
+}
+textarea {
+   width:400px;height:100px;padding:5px; margin: 5px;
+}
+input {
+   width:200px;padding:5px; margin: 5px;
+}
+
+.sales_total{
+   display: flex;
+   flex-direction: column;
+
+}
+
+.sales_box_title{
+   display: flex;
+   flex-direction: row;
+   padding: 0px 5px;
+}
+.sales_box_title p{
+   text-align: left;
+   width: 110px;
+   margin: 0px;
+   padding:0px;
+}
+
+
+.sales_box_input{
+   display: flex;    
+   flex-wrap: wrap;
+}
+
+.sales_box_input input{ 
+   width: 100px;
+   margin: 5px;
+   padding:5px;
+}
+
+.sales_box_input button{
+   height: 30;
+   margin: 5px 2px;
+   padding:5px;
+}

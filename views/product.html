@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Add Product</title>
+      <link rel="stylesheet" href="/css/createProduct.css">
+   </head>
+   <body>
+      
+      <% if (typeof data == 'object' && data) { %>   
+      <div>
+         <h2> Produce success!</h2>
+         <ul>
+            <% for(var i in data) { %>
+               <li> <%=i %> =    <%=data[i] %></li>
+               <%} %>
+         </ul>   
+      </div>      
+      <% } %>
+
+      <h2>Create a New Product</h2>
+      <form method="post" action="/api/1.0/admin/product" enctype="multipart/form-data">
+         <!-- use multipart/form-data when your form includes any <input type="file">--> 
+         
+         ID <input type="text" name="id"  required="required"/><br/>
+         Category <select name="category">
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="accessories">Accessories</option>
+         </select><br/>
+         Title <input type="text" name="title" /><br/>
+         Description<br/><textarea name="description"></textarea><br/>
+         Price <input type="text" name="price" />
+         <hr/>
+
+         Texture <input type="text" name="texture" /><br/>
+         Wash <input type="text" name="wash" /><br/>
+         Place of Production <input type="text" name="place" /><br/>
+         Note <input type="text" name="note" /><br/>
+         Story<br/><textarea name="story"></textarea><br/>
+         
+         <hr/>
+         <div class= "sales_total">
+            <div class="sales_box_title">
+               <p class='ctn_box'>Color Code</p>
+               <p class='ctn_box'>Color Name</p>
+               <p class='ctn_box'>Size</p>
+               <p class='ctn_box'>Stock</p>
+            </div>
+
+            <div  class='sales_box_input' id='sales_box_input'>
+               <input type="text" class='ctn_box' name="color_codes" value="FFFFFF" placeholder="FFFFFF" /><br/>
+               <input type="text" class='ctn_box' name="color_names" value="white" placeholder="white"/><br/>
+               <input type="text" class='ctn_box' name="sizes" value="S" placeholder="S"/>
+               <input type="number" class='ctn_box' name="stock" value="1" placeholder="1"/>
+               <button onclick='add()'>+</button>
+               <button onclick='remove()'>-</button>
+            </div>
+         </div>
+         <hr/> 
+         
+         Main Image <input type="file" name="main_image" 
+                     accept="image/png, image/jpeg, image/jpg" /><br/>
+         Other Images (Accept more than one file)
+         <input type="file" name="images" multiple
+                  accept="image/png, image/jpeg, image/jpg"  /><br/>
+         <br/>
+         <input type="submit" value="Create" />
+      </form>
+
+      <script>
+      let row = 1;
+      const boxInput = document.getElementById('sales_box_input');
+
+      function createInput(type, name) {
+         const input = document.createElement('input');
+         input.type = type;
+         input.name = name;
+         input.id = 'new';
+         input.required = 'required';
+         if (name == 'color_codes') {
+            input.pattern = '[0-9a-fA-F]{6}';
+            input.maxLength = '6';
+            input.title = 'Hex Code #RRGGBB';
+         } else if (name == 'sizes') {
+            input.pattern = 'S|M|L|XL|F';
+            input.title = 'S/M/L/XL/F';
+         } else if (name == 'stock') {
+            input.min = '0';
+            input.max = '9999999'
+         }
+            return input;
+      };
+
+
+      function add() {
+         event.preventDefault();
+         const color_codes = createInput('text', 'color_codes');
+         const color_names = createInput('text', 'color_names');
+         const sizes = createInput('text', 'sizes');
+         const stock = createInput('number', 'stock');
+
+         boxInput.appendChild(color_codes);
+         boxInput.appendChild(color_names);
+         boxInput.appendChild(sizes);
+         boxInput.appendChild(stock);
+         row += 1;
+      };
+
+      function remove() {
+         event.preventDefault();
+         if (row !== 1) {
+            for (let i = 1; i <= 4; i += 1) {
+               let lastChild = boxInput.lastChild;
+               boxInput.removeChild(lastChild);
+            }
+            row -= 1;
+         }
+      };
+   </script>
+   </body>
+</html>

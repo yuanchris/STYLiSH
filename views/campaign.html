@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Campaign</title>
+      <link rel="stylesheet" href="/css/style_campaign.css">
+   </head>
+   <body>
+      <h2>Create a New Campaign</h2>
+      <form method="post" action="/api/1.0/marketing/campaigns" enctype="multipart/form-data">
+         <!-- use multipart/form-data when your form includes any <input type="file">--> 
+        
+        Product ID 
+        <select name="id" id = "id">
+          <% for(var i in data) { %>
+            <option value="<%=data[i].id %>"><%=data[i].id %></option>
+          <%} %>
+        </select><br/>
+
+        Picture <input type="file" name="picture" 
+        accept="image/png, image/jpeg, image/jpg" /><br/>
+        Story<br/><textarea name="story"></textarea><br/>
+        <input type="submit" value="Create" />
+      </form>
+   </body>
+</html>
