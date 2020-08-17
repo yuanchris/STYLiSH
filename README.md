@@ -41,11 +41,11 @@ Website URL : https://stylish.chris-hsiao.site/
 * Enter shipping and credit card information to check out
 
 
-<img src="./public/imgs/readme/1.jpg" width="70%" title="index">
+<img src="./public/imgs/readme/1.JPG" width="70%" title="index">
 
-<img src="./public/imgs/readme/2.jpg" width="70%" title="choice">
+<img src="./public/imgs/readme/2.JPG" width="70%" title="choice">
 
-<img src="./public/imgs/readme/3.jpg" width="70%" title="choice">
+<img src="./public/imgs/readme/3.JPG" width="70%" title="choice">
 
 
 
