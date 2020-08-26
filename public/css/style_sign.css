@@ -1,16 +1,71 @@
-* {
-  box-sizing: border-box;
+@import "common.css";
+/* main */
+main{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px; 
+  padding-bottom: 60px; 
 }
-
-body {
-  line-height: 1.6;
-  font-family: 'Varela Round', sans-serif;
-  position: absolute;
-  max-width: 520px;
+@media (max-width:600px){
+	main{
+		padding-top:50px;padding-bottom:300px;
+	}
+}
+main>.view{
+	max-width:980px;
+}
+main>.view>.headline{
+	padding-bottom:15px;border-bottom:1px solid #979797;
+}
+main>.view #number{
+	background-color:#eeeeee;padding:5px 10px;
+}
+main>.view>.more{
+	margin-top:40px;
+}
+main>.view>.more>a:hover{
+	color:#8b572a;
 }
 textarea {
   width:400px;height:100px;padding:5px; margin: 5px;
 }
 input {
   width:200px;padding:5px; margin: 5px;
+}
+
+
+.signin,
+.signup
+{
+  display: block;
+  width: 400px;
+  text-align: center ;
+	color: rgb(0, 0, 0);	  
+	border: 1.4px black solid;
+	border-radius: 15px;
+}
+
+#ajaxIn,
+#ajaxUp{
+  color: red;
+
+}
+
+#button {
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 2px;
+  background-color: #e8ae2b;
+  /* padding: 6px 25px 6px 30px; */
+  margin: 10px 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #e8ae2b;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3);
+
 }
