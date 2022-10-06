@@ -1,7 +1,7 @@
 # STYLiSH
 An e-commerce website for purchasing clothes and accessories
 
-Website URL : https://stylish.chris-hsiao.site/
+Website URL : https://stylish.chris-hsiao.site/ (now is temporary closed owing to the fee)
 
 ## Table of Contents
 * [Technologies](#Technologies)
